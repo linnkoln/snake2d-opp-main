@@ -1,4 +1,5 @@
 import Config from "./config.js";
+import { randColor } from "./supportFunction.js";
 
 export default class Snake {
 	
@@ -18,7 +19,12 @@ export default class Snake {
 		this.tails = [];
 		this.maxTails = 3;
 
+		// контреллер змейки
 		this.control();
+
+		// цвет змейки
+		this.tailColor = randColor();
+		this.headColor = randColor();
 
 	}
 
@@ -73,9 +79,9 @@ export default class Snake {
 
 		this.tails.forEach( (el, index) => { //отрисовываем каждый квадратик змейки
 			if (index == 0) {
-				context.fillStyle = "#6AA121";
+				context.fillStyle = this.headColor;
 			} else {
-				context.fillStyle = "#437C17";
+				context.fillStyle = this.tailColor;
 			}
 			context.fillRect( el.x, el.y, this.config.sizeCell, this.config.sizeCell );
 		} );
