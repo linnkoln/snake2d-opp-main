@@ -11,7 +11,7 @@ class Game { //класс запускающий игру
         //инициализиуем данные об игре
 
         this.canvas = new Canvas(GameContainer);
-        this.snakes = [new Snake(), new Snake(100, 160)];
+        this.snakes = [new Snake(), new Snake(100, 160), new Snake(100, 100)];
 
         this.berry = new Berry(this.canvas);
         this.score = new Score(ScoreContainer, 0);
@@ -20,7 +20,7 @@ class Game { //класс запускающий игру
     }
 
     update() { // апдейт игры во время начала 
-        for (snake of this.snakes) {
+        for (let snake of this.snakes) {
             snake.update(this.berry, this.score, this.canvas, this.snakes);
         }
         
@@ -31,7 +31,7 @@ class Game { //класс запускающий игру
 
         this.canvas.context.clearRect( 0, 0, this.canvas.element.width, this.canvas.element.height );
 
-        for ( snake of this.snakes) {
+        for (let snake of this.snakes) {
             snake.draw(this.canvas.context);
         }
         

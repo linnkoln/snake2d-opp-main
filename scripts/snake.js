@@ -45,7 +45,7 @@ export default class Snake {
 		}
 	
 
-		for (snake of snakes) {
+		for (let snake of snakes) {
 			snake.tails.forEach((el, index) => {
 
 				if (el.x === berry.x && el.y === berry.y) {
